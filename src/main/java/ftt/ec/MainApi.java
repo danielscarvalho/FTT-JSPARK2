@@ -23,6 +23,7 @@ public class MainApi {
 		//Microserviço com Java Spark - http://localhost:4567/hello
 		
 		Spark.staticFiles.location("public");
+		port(8080); //Default - 4567
 
 		
 		get("/hello", (req, res) -> "Hello FTT - GET - " + new Date());
@@ -34,6 +35,11 @@ public class MainApi {
 	    get("/safepassword", (req,res) -> new SafePassword().getPassword() );
 	    
 	    get("/soma/:a/:b", (req,res) -> new Calc().add(req.params(":a"),req.params(":b")));
+	    
+	    get("/test", (req,res) -> {
+	    	res.type("application/json"); //mime type
+	    	return "{\"now\":\"" + new Date().toString() + "\",\"status\":\"ok\"}";
+	    });
 		
 	}
 
