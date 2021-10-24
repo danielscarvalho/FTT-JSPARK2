@@ -24,7 +24,6 @@ public class MainApi {
 		
 		Spark.staticFiles.location("public");
 		port(8080); //Default - 4567
-
 		
 		get("/hello", (req, res) -> "Hello FTT - GET - " + new Date());
 		delete("/hello", (req, res) -> "Hello FTT - DELETE - " + new Date());
@@ -32,7 +31,7 @@ public class MainApi {
 		put("/hello", (req, res) -> "Hello FTT - PUT - " + new Date());
 		
 		//TODO - Daniel Carvalho - API Senha segura...
-	    get("/safepassword", (req,res) -> new SafePassword().getPassword() );
+	    get("/safepassword", (req,res) -> new SafePassword().getPassword());
 	    
 	    get("/soma/:a/:b", (req,res) -> new Calc().add(req.params(":a"),req.params(":b")));
 	    
@@ -40,7 +39,13 @@ public class MainApi {
 	    	res.type("application/json"); //mime type
 	    	return "{\"now\":\"" + new Date().toString() + "\",\"status\":\"ok\"}";
 	    });
-		
+	    
+	    
+	    get("/github/:query", (req,res) -> {
+	    	res.type("application/json"); //mime type
+	    	return new GitHubUser().getInfo(req.params(":query"));
+	    });
+	    
 	}
 
 }
