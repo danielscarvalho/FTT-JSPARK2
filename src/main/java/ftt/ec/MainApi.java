@@ -46,6 +46,10 @@ public class MainApi {
 	    	return new GitHubUser().getInfo(req.params(":query"));
 	    });
 	    
+	    //Caio de Morais - 082180015 - Radiano - Graus
+	    get("/calculaRad/:grau", (req,res) -> new GrauRad().calculaRad(Double.parseDouble(req.params(":grau"))));
+	    get("/calculaGrau/:rad", (req,res) -> new GrauRad().calculaGrau(Double.parseDouble(req.params(":rad"))));
+	    
 	}
 
 }
