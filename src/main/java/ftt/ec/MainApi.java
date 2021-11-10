@@ -6,6 +6,8 @@ import spark.Spark;
 
 import java.util.Date;
 
+import api.controller_dadosclimaticos;
+
 public class MainApi {
 
 	public static void main(String[] args) {
@@ -45,6 +47,8 @@ public class MainApi {
 	    	res.type("application/json"); //mime type
 	    	return new GitHubUser().getInfo(req.params(":query"));
 	    });
+	    
+	    get("/clima/:cidade", (req, res) -> new controller_dadosclimaticos().Voltadados(req.params(":cidade")));
 	    
 	}
 
