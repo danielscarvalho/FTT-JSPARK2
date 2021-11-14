@@ -46,6 +46,11 @@ public class MainApi {
 	    	return new GitHubUser().getInfo(req.params(":query"));
 	    });
 	    
+	    //Fabio Arrais - 082180031 - WordCLoud em SVG
+	    get("/wordcloud/:text", (req,res) -> {
+	    	res.type("image/svg+xml");
+	    	return WordCloudSVG.getImage(req.params(":text"));
+	    });
 	}
 
 }
