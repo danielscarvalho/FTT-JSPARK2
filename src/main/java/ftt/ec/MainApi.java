@@ -46,6 +46,11 @@ public class MainApi {
 	    	return new GitHubUser().getInfo(req.params(":query"));
 	    });
 	    
+	    get("/bitcoin", (req,res) -> {
+	    	res.type("application/json");
+	    	return new CotacaoBitcoin().getBitcoin();
+	    });
+	    
 	}
 
 }
