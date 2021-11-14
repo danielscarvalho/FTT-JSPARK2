@@ -46,6 +46,13 @@ public class MainApi {
 	    	return new GitHubUser().getInfo(req.params(":query"));
 	    });
 	    
+	    // Gabrielle Novaes - 082180020 - Conversor Binário <> Hexadecimal
+	    get("/converteToHexa/:binario", (req,res) -> new ConversorBinHexa().convertBin(req.params(":binario")));
+	    
+	    get("/converteToBin/:hexadecimal", (req,res) -> new ConversorBinHexa().convertHex(req.params(":hexadecimal")));
+	    
+
+	    
 	}
 
 }
