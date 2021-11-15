@@ -46,6 +46,8 @@ public class MainApi {
 	    	return new GitHubUser().getInfo(req.params(":query"));
 	    });
 	    
+	    get("/graficosvg", (req,res) -> new GraficoGauge().graficoSvg());
+	    
 	}
 
 }
