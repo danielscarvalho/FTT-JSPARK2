@@ -49,6 +49,27 @@ public class MainApi {
 	    });
 	    
 	    get("/clima/:cidade", (req, res) -> new controller_dadosclimaticos().Voltadados(req.params(":cidade")));
+
+	    get("/bitcoin", (req,res) -> {
+	    	res.type("application/json");
+	    	return new CotacaoBitcoin().getBitcoin();
+	    });
+
+
+	    // Gabrielle Novaes - 082180020 - Conversor Bin�rio <> Hexadecimal
+	    get("/converteToHexa/:binario", (req,res) -> new ConversorBinHexa().convertBin(req.params(":binario")));
+	    
+	    get("/converteToBin/:hexadecimal", (req,res) -> new ConversorBinHexa().convertHex(req.params(":hexadecimal")));
+	    
+
+	    //Fabio Arrais - 082180031 - WordCLoud em SVG
+	    get("/wordcloud/:text", (req,res) -> {
+	    	res.type("image/svg+xml");
+	    	return WordCloudSVG.getImage(req.params(":text"));
+	    });
+
+    get("/graficosvg", (req,res) -> new GraficoGauge().graficoSvg());
+
 	    
 	}
 
