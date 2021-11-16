@@ -51,6 +51,9 @@ public class MainApi {
 	    	res.type("image/svg+xml");
 	    	return WordCloudSVG.getImage(req.params(":text"));
 	    });
+
+    get("/graficosvg", (req,res) -> new GraficoGauge().graficoSvg());
+	    
 	}
 
 }
