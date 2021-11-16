@@ -6,6 +6,8 @@ import spark.Spark;
 
 import java.util.Date;
 
+import api.controller_dadosclimaticos;
+
 public class MainApi {
 
 	public static void main(String[] args) {
@@ -49,6 +51,29 @@ public class MainApi {
 	    //Caio de Morais - 082180015 - Radiano - Graus
 	    get("/calculaRad/:grau", (req,res) -> new GrauRad().calculaRad(Double.parseDouble(req.params(":grau"))));
 	    get("/calculaGrau/:rad", (req,res) -> new GrauRad().calculaGrau(Double.parseDouble(req.params(":rad"))));
+
+      get("/clima/:cidade", (req, res) -> new controller_dadosclimaticos().Voltadados(req.params(":cidade")));
+
+	    get("/bitcoin", (req,res) -> {
+	    	res.type("application/json");
+	    	return new CotacaoBitcoin().getBitcoin();
+	    });
+
+
+	    // Gabrielle Novaes - 082180020 - Conversor Bin�rio <> Hexadecimal
+	    get("/converteToHexa/:binario", (req,res) -> new ConversorBinHexa().convertBin(req.params(":binario")));
+	    
+	    get("/converteToBin/:hexadecimal", (req,res) -> new ConversorBinHexa().convertHex(req.params(":hexadecimal")));
+	    
+
+	    //Fabio Arrais - 082180031 - WordCLoud em SVG
+	    get("/wordcloud/:text", (req,res) -> {
+	    	res.type("image/svg+xml");
+	    	return WordCloudSVG.getImage(req.params(":text"));
+	    });
+
+    get("/graficosvg", (req,res) -> new GraficoGauge().graficoSvg());
+
 	    
 	}
 
