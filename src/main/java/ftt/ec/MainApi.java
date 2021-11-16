@@ -47,6 +47,12 @@ public class MainApi {
 	    });
 	    
 
+	    get("/bitcoin", (req,res) -> {
+	    	res.type("application/json");
+	    	return new CotacaoBitcoin().getBitcoin();
+	    });
+
+
 	    // Gabrielle Novaes - 082180020 - Conversor Bin�rio <> Hexadecimal
 	    get("/converteToHexa/:binario", (req,res) -> new ConversorBinHexa().convertBin(req.params(":binario")));
 	    
@@ -60,6 +66,7 @@ public class MainApi {
 	    });
 
     get("/graficosvg", (req,res) -> new GraficoGauge().graficoSvg());
+
 	    
 	}
 
