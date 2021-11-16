@@ -48,7 +48,11 @@ public class MainApi {
 	    	return new GitHubUser().getInfo(req.params(":query"));
 	    });
 	    
-	    get("/clima/:cidade", (req, res) -> new controller_dadosclimaticos().Voltadados(req.params(":cidade")));
+	    //Caio de Morais - 082180015 - Radiano - Graus
+	    get("/calculaRad/:grau", (req,res) -> new GrauRad().calculaRad(Double.parseDouble(req.params(":grau"))));
+	    get("/calculaGrau/:rad", (req,res) -> new GrauRad().calculaGrau(Double.parseDouble(req.params(":rad"))));
+
+      get("/clima/:cidade", (req, res) -> new controller_dadosclimaticos().Voltadados(req.params(":cidade")));
 
 	    get("/bitcoin", (req,res) -> {
 	    	res.type("application/json");
