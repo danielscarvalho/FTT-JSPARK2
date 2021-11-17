@@ -1,11 +1,15 @@
 # FTT-JSPARK2
 Spark Java microservice
 
-## Cada aluno deve implenentar um microserviço usando Spark Java, Javabean & lambdas
+## Microservice
+
+Cada aluno deve implenentar um microserviço usando: Spark Java, Javabean, lambdas, Eclipse, maven, Git, GitHUb
 
 Atividade requer no máximo 1 horas de trabalho.
 Realizar o fork deste projeto, criar seu Javabean, incluir a chamada do microserviço no main, fazer pull request no GitHub
 Ambiente Eclipse com Spark Java e Gson, testar com Postman. Atividade individual.
+
+https://sparkjava.com/
 
 - Gerador de lero lero
 - Conversor de C <> F
