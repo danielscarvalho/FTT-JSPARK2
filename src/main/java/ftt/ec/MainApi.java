@@ -51,8 +51,13 @@ public class MainApi {
 	    //Caio de Morais - 082180015 - Radiano - Graus
 	    get("/calculaRad/:grau", (req,res) -> new GrauRad().calculaRad(Double.parseDouble(req.params(":grau"))));
 	    get("/calculaGrau/:rad", (req,res) -> new GrauRad().calculaGrau(Double.parseDouble(req.params(":rad"))));
+		
+	    //Caico Eduardo - 082180008 - Conversor de temperatura
+	    get("/ConverteParaCelsius/:fahrenheit", (req,res) -> new ConverteTemperatura().ConverteParaCelsius(Double.parseDouble(req.params(":fahrenheit"))));
+	    get("/ConverteParaFahrenheit/:celsius", (req,res) -> new ConverteTemperatura().ConverteParaFahrenheit(Double.parseDouble(req.params(":celsius"))));
 
-      get("/clima/:cidade", (req, res) -> new controller_dadosclimaticos().Voltadados(req.params(":cidade")));
+		
+            get("/clima/:cidade", (req, res) -> new controller_dadosclimaticos().Voltadados(req.params(":cidade")));
 
 	    get("/bitcoin", (req,res) -> {
 	    	res.type("application/json");
@@ -72,7 +77,7 @@ public class MainApi {
 	    	return WordCloudSVG.getImage(req.params(":text"));
 	    });
 
-    get("/graficosvg", (req,res) -> new GraficoGauge().graficoSvg());
+             get("/graficosvg", (req,res) -> new GraficoGauge().graficoSvg());
 
 	    
 	}
